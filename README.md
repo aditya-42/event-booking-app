@@ -38,7 +38,7 @@ VIEW EVENTS PAGE
 
 ![SCR-20241118-eqi](https://github.com/user-attachments/assets/b1462fe8-8133-419e-ad05-68ffeb74bbd4)
 
-EDIT EVENT PAGE
+EDIT EVENTS PAGE
 
 ![SCR-20241118-erb](https://github.com/user-attachments/assets/4f40da8d-a800-467b-b7f5-af649825817b)
 
