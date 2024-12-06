@@ -1,0 +1,20 @@
+# Ignore vendor directory (install dependencies via Dockerfile)
+/vendor
+
+# Ignore node_modules (install dependencies via Dockerfile)
+/node_modules
+
+
+# Ignore Laravel's storage and cache directories
+/storage/*
+!/storage/app
+!/storage/logs
+!/storage/framework/cache
+!/storage/framework/sessions
+!/storage/framework/views
+
+# Ignore cache, session, and logs
+/bootstrap/cache/*
+/public/storage
+/storage/logs
+/storage/app/public

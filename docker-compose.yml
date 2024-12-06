@@ -24,6 +24,7 @@ services:
              php artisan key:generate &&
              php artisan config:clear &&
              php artisan migrate --force &&
+             php artisan storage:link &&
              php artisan serve --host=0.0.0.0 --port=8000"
 
   db:
@@ -35,7 +36,7 @@ services:
       MYSQL_PASSWORD: pass
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
 
