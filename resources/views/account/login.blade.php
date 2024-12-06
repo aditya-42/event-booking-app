@@ -4,27 +4,53 @@
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8 col-sm-10">
         <div class="form-container">
-          <h4 class="text-center mb-4">Login</h4>
-          <form>
-          <div class="mb-3">
-              <label for="userType" class="form-label">Login As</label>
-              <select class="form-select" id="userType" required>
-                <option value="" disabled selected>Select role</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
+          {{-- Success Message --}}
+          @if (Session::has('success'))
+            <div class="alert alert-success">
+              {{ Session::get('success') }}
             </div>
+          @endif
+
+          {{-- General Error Message --}}
+          @if (Session::has('error'))
+            <div class="alert alert-danger">
+              {{ Session::get('error') }}
+            </div>
+          @endif
+
+          <h4 class="text-center mb-4">Login</h4>
+          <form action="{{ route('account.authenticate') }}" method="post">
+            @csrf 
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              <input 
+                type="email" 
+                name="email" 
+                class="form-control @error('email') is-invalid @enderror" 
+                id="email" 
+                placeholder="Enter your email" 
+                value="{{ old('email') }}" 
+                >
+              @error('email')
+                <p class="invalid-feedback">{{ $message }}</p>
+              @enderror
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+              <input 
+                type="password" 
+                name="password" 
+                class="form-control @error('password') is-invalid @enderror" 
+                id="password" 
+                placeholder="Enter your password" 
+                >
+              @error('password')
+                <p class="invalid-feedback">{{ $message }}</p>
+              @enderror
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
           </form>
-          <div class="divider"></div>
+          <div class="divider my-3"></div>
           <p class="text-center">
             Don't have an account? <a href="{{ route('account.register') }}">Register here</a>.
           </p>

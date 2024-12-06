@@ -12,9 +12,16 @@
 <div class="navbar">
     <div class="title" style="cursor:pointer" onclick="location.href='{{ route('account.register') }}'">Eventz</div>
     <div class="nav-buttons">
+
+        @if (Auth::check())
+      <button onclick="location.href='{{ route('account.profile') }}'">My Profile</button>
+        @if(Auth::user()->role === 'user')
       <button onclick="location.href='{{ route('home') }}'">Explore</button>
+        @endif
+      @else
       <button onclick="location.href='{{ route('account.login') }}'">Login</button>
       <button onclick="location.href='{{ route('account.register') }}'">Register</button>
+      @endif
     </div>
   </div>
  
